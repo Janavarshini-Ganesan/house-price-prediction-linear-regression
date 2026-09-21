@@ -15,10 +15,8 @@ import streamlit as st
 
 # On Streamlit Cloud, set API_URL in the app's Secrets (Settings > Secrets) to your
 # deployed backend, e.g. API_URL = "https://your-app.onrender.com/predict"
-API_URL = os.environ.get(
-    "API_URL",
-    "http://localhost:8000/predict"
-)
+API_URL = st.secrets.get("API_URL", os.environ.get("API_URL", "http://localhost:8000/predict"))
+
 st.set_page_config(
     page_title="House Price Predictor",
     page_icon="🏡",
@@ -96,6 +94,8 @@ st.markdown(
         border-radius: 10px !important;
         border: 1.5px solid #ffd6b8 !important;
         background: #fffdfb !important;
+        color: #7a3b1e !important;
+        -webkit-text-fill-color: #7a3b1e !important;
     }
     div[data-testid="stNumberInput"] input:focus {
         border-color: #f0834f !important;
@@ -185,6 +185,7 @@ st.markdown(
 
 # ---------- Input form ----------
 with st.form("predict_form"):
+    st.markdown('<div class="form-card">', unsafe_allow_html=True)
 
     st.markdown('<div class="section-label">📐&nbsp; Property Details</div>', unsafe_allow_html=True)
     col1, col2 = st.columns(2, gap="medium")
