@@ -185,7 +185,6 @@ st.markdown(
 
 # ---------- Input form ----------
 with st.form("predict_form"):
-    st.markdown('<div class="form-card">', unsafe_allow_html=True)
 
     st.markdown('<div class="section-label">📐&nbsp; Property Details</div>', unsafe_allow_html=True)
     col1, col2 = st.columns(2, gap="medium")
