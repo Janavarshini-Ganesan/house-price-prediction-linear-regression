@@ -202,9 +202,12 @@ with st.form("predict_form"):
     with col4:
         bathrooms = st.number_input("Bathrooms", min_value=0, max_value=10, value=1)
 
-    predict_clicked = st.form_submit_button("✨ Predict Price")
-
-    st.markdown("</div>", unsafe_allow_html=True)
+    #predict_clicked = st.form_submit_button("✨ Predict Price")
+    # ---------- Predict button (centered) ----------
+    col_left, col_center, col_right = st.columns([1, 1, 1])
+    with col_center:
+        predict_clicked = st.form_submit_button("✨ Predict Sales")
+        st.markdown("</div>", unsafe_allow_html=True)
 
 # ---------- Prediction ----------
 if predict_clicked:
